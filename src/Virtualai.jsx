@@ -1,4 +1,4 @@
-import Virtualassistant from "./virtualassistant"
+import Virtualassistant from "./Virtualassistant";
 import { useRef } from "react";
 import { useState } from "react";
 import aiVoice from "./assets/aiVoice.gif"

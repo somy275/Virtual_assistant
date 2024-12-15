@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import run from "./gemini";
-// eslint-disable-next-line react/prop-types
 const Virtualassistant = ({value}) => {
         function speak(text){
             let spoken=text;
