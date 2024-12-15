@@ -82,7 +82,7 @@ recognition.onspeechend = function() {
 recognition.onresult =async function(event) {
     let transcript = event.results[0][0].transcript;
     value[4].current.innerHTML = transcript;
-    response(transcript.toLowerCase());
+    response(transcript);
 };
 // start recognition
 if(value[1]==true){
@@ -95,10 +95,10 @@ recognition.start();
 
 let tellyourself=(spoken)=>{
     let text = spoken;
-    if(text.includes("Hello") || text.includes("Hi") || text.includes("Hey")){
+    if(text.includes("hello") || text.includes("hi") || text.includes("hey")){
          text = "Hello, I am your virtual assistant. How can I help you today?";
       }
-      else if(text.includes("Who")){
+      else if(text.includes("who")){
           text = "I am your virtual assistant developed by somyranjan sir."
         }
     return text;
@@ -107,8 +107,8 @@ let tellyourself=(spoken)=>{
 //This function is for opening apps when user says open then fuction openApps is called and the app is opened
 
 let openApps=(text)=>{
-   let openning = "Opening "+text.replace("Open", "");
-    let open = text.replace("Open", "");
+   let openning = "Opening "+text.replace("open", "");
+    let open = text.replace("open", "");
     open = open.replace(".", "");
   open=open.replaceAll(" ", "");
   open = open.replace(`${open}`, `${open}`);  
@@ -118,9 +118,9 @@ let openApps=(text)=>{
 }
 
 let searchresult=(text)=>{
-    let search = "Searching "+text.replace("Search", "");
+    let search = "Searching "+text.replace("search", "");
     search=search.replaceAll(".", "");
-  window.open("https://www.bing.com/search?pglt=395&q="+`${text.replaceAll("Search", "")}`, '_blank');
+  window.open("https://www.bing.com/search?pglt=395&q="+`${text.replaceAll("search", "")}`, '_blank');
   return search;
 }
 
