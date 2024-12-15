@@ -107,8 +107,8 @@ let tellyourself=(spoken)=>{
 //This function is for opening apps when user says open then fuction openApps is called and the app is opened
 
 let openApps=(text)=>{
-   let openning = "Opening "+text.replace("open", "");
-    let open = text.replace("open", "");
+   let openning = "Opening "+text.replace(/Open/gi, "");
+    let open = text.replace(/open/gi, "");
     open = open.replace(".", "");
   open=open.replaceAll(" ", "");
   open = open.replace(`${open}`, `${open}`);  
@@ -118,7 +118,7 @@ let openApps=(text)=>{
 }
 
 let searchresult=(text)=>{
-    let search = "Searching "+text.replace("search", "");
+    let search = "Searching "+text.replace(/search/gi, "");
     search=search.replaceAll(".", "");
   window.open("https://www.bing.com/search?pglt=395&q="+`${text.replaceAll("search", "")}`, '_blank');
   return search;
