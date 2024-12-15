@@ -25,15 +25,16 @@ const Virtualassistant = ({value}) => {
     }
       
       async function response(text) {
+        text=text.toLowerCase();
           let text1;
-          if(text.includes("Hello") || text.includes("Hi") || text.includes("Hey") || text.includes("Who are you?")) {
+          if(text.includes("hello") || text.includes("hi") || text.includes("hey") || text.includes("who are you?")) {
             text1 = tellyourself(text);
          }
-          else if(text.includes("Open")){
+          else if(text.includes("open")){
             text1=openApps(text);
             value[4].current.innerHTML = text;
         }
-        else if(text.includes("Search")){
+        else if(text.includes("search")){
 text1=searchresult(text);
         }
         else if(text.includes("date")){
@@ -81,8 +82,7 @@ recognition.onspeechend = function() {
 recognition.onresult =async function(event) {
     let transcript = event.results[0][0].transcript;
     value[4].current.innerHTML = transcript;
-    console.log(transcript);
-    response(transcript);
+    response(transcript.toLowerCase());
 };
 // start recognition
 if(value[1]==true){
@@ -95,7 +95,6 @@ recognition.start();
 
 let tellyourself=(spoken)=>{
     let text = spoken;
-    console.log(text);
     if(text.includes("Hello") || text.includes("Hi") || text.includes("Hey")){
          text = "Hello, I am your virtual assistant. How can I help you today?";
       }
